@@ -2,19 +2,20 @@ class Solution {
 public:
     vector<int> twoSum(vector<int>& nums, int target) {
         unordered_map<int, int> frequency;
-        vector<int> target_pair;
+        vector<int> ans;
         for(int i=0; i<nums.size(); i++)
         {
-            if(frequency.find(target - nums[i]) == frequency.end())
-                frequency[nums[i]] = i;
+            if(frequency.find(target-nums[i])!= frequency.end() && i != frequency[target-nums[i]])
+            {
+                return {i,frequency[target-nums[i]]};
+            }
             else
             {
-                target_pair.push_back(i);
-                target_pair.push_back(frequency[target-nums[i]]);
-                break;
+                frequency[nums[i]] = i;
             }
         }
-        return target_pair;
+        return ans;
+        
         
     }
 };
