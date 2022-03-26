@@ -6,8 +6,8 @@ class Solution {
         for (int i = 1; i <= nums.length; i++)
             sum[i] = sum[i - 1] + nums[i - 1];
         for (int start = 0; start < nums.length; start++) {
-            for (int end = start + 1; end <= nums.length; end++) {
-                if (sum[end] - sum[start] == k)
+            for (int end = start; end <nums.length; end++) {
+                if (sum[end+1] - sum[start] == k)
                     count++;
             }
         }
