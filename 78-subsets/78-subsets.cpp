@@ -8,12 +8,13 @@ public:
             return;
         }
         
-        vector<int> output1 = output;
-        vector<int> output2 = output;
-        output2.push_back(input[0]);
+        int k = input[0];
+        
+       
         input.erase(input.begin()+0);
-        subset(input,output1,ans);
-        subset(input,output2, ans);
+        subset(input,output,ans);
+        output.push_back(k);
+        subset(input,output, ans);
     }
     
     vector<vector<int>> subsets(vector<int>& nums) {
